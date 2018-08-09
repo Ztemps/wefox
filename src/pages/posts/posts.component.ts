@@ -11,15 +11,17 @@ import { ModalComponent } from '../../shared/modal/modal.component';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
+
+  public posts: [{}] = [{}];
+  public empyPost: Post;
+  public isLoaded = false;
+  public isNewPost = true;
   constructor(
     private _postsService: PostsService,
     private router: Router,
     public bsModalRef: BsModalRef,
-    private _modalService: BsModalService,
+    public _modalService: BsModalService,
   ) { }
-
-  public posts: [{}] = [{}];
-  public isLoaded = false;
 
   ngOnInit() {
     this.loadPostList();
@@ -29,21 +31,42 @@ export class PostsComponent implements OnInit {
     this._postsService.getPostsList().subscribe(
       (posts: [Post]) => {
         this.posts = posts;
-        console.log('this.posts: ', this.posts);
         this.isLoaded = true;
       },
       err => console.error('Error gathering the post list', err)
     );
   }
 
+  private createNewPost(post: Post) {
+    this._postsService.createPost(post)
+      .subscribe(
+        postCreated => {
+          this.reloadContent();
+        },
+        error => {
+          console.error('Error creating post', error);
+        }
+      );
+  }
+
+  private reloadContent() {
+    this.loadPostList();
+  }
+
+  public createPost() {
+    const initialState = {
+      initialState: {
+        modalTitle: 'Create post',
+        method: (post) => this.createNewPost(post),
+        condition: this.isNewPost
+      }
+    };
+    this.bsModalRef = this._modalService.show(ModalComponent, {initialState});
+  }
+
   public goHome() {
     this.router.navigate(['/home']);
   }
 
-  createPost() {
-    const initialState = {};
-    this.bsModalRef = this._modalService.show(ModalComponent, {initialState});
-    this.bsModalRef.content.closeBtnName = 'Close';
-  }
 
 }

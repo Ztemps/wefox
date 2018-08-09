@@ -11,6 +11,11 @@ export class PostsService {
 
   constructor(private http: HttpClient) { }
 
+  // Listed as CRUD order
+  createPost(post: Post) {
+    return this.http.post(API_URL, { post }, { headers: this.headers });
+  }
+
   getPostsList() {
     return this.http.get(API_URL).pipe(
       map((posts: [Post]) => {
@@ -22,4 +27,5 @@ export class PostsService {
       })
     );
   }
+
 }
