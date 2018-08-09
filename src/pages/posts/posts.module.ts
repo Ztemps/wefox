@@ -7,11 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Components
 import { PostsComponent } from './posts.component';
 
+// Providers
+import { PostsService } from './posts.service';
+
 
 @NgModule({
     imports: [SharedModule],
     declarations: [PostsComponent],
     exports: [],
-    providers: []
+    providers: [PostsService]
 })
 export class PostsModule { }
