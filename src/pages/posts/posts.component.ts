@@ -138,10 +138,13 @@ export class PostsComponent implements OnInit {
       }
     });
   }
+
+  openSinglePost(post) {
+    this.router.navigate(['/posts', post.id]);
+  }
+
   public goHome() {
     this.router.navigate(['/home']);
   }
-
-
 
 }

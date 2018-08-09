@@ -1,0 +1,28 @@
+<div class="main-container-post fadeIn animated" *ngIf="isLoaded; else loader" #done>
+  <div class="row container-header">
+    <div class="container-header__container" (click)="goHome()">
+      <img class="container-header__container__logo" src="../../assets/img/wefox-header-logo.svg" alt="Wefox Logo">
+    </div>
+  </div>
+  <div class="row container-card">
+    <div class="card container-card__box">
+      <img class="card-img-top container-card__box__img" [src]="cardContent?.image_url | no_image" (error)="cardContent.image_url = '../../assets/img/picture-not-available.jpg'" alt="Card image cap">
+      <div class="card-body container-card__box__body">
+        <h5 class="card-title">{{ cardContent?.title }}</h5>
+        <p class="card-text">{{ cardContent?.content }} </p>
+        <hr>
+        <agm-map [latitude]="+cardContent?.lat" [longitude]="+cardContent?.long">
+          <agm-marker [latitude]="+cardContent?.lat" [longitude]="+cardContent?.long"></agm-marker>
+        </agm-map>
+        <hr>
+        <a class="btn btn-secondary container-card__box__body__button" (click)="goBack()">Back</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div #loader *ngIf="!isLoaded; else done" class="lds-ellipsis">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>

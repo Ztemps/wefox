@@ -11,10 +11,13 @@
     <div class="card-header" *ngFor="let post of posts;">
       <div class="card-body container-cards__single">
         <h5 class="card-title">{{ post?.title }}</h5>
-        <img class="card-img-top container-cards__single__img" [src]="post?.image_url" alt="{{ post?.title }} image">
+        <img class="card-img-top container-cards__single__img"
+        [src]="post?.image_url | no_image "
+        (error)="post.image_url = '../../assets/img/picture-not-available.jpg'"
+        alt="{{ post?.title }} image">
         <p class="card-text">{{ post?.content }}</p>
         <nav class="nav nav-pills nav-justified">
-          <a class="nav-item container-cards__single__btn" >View</a>
+          <a class="nav-item container-cards__single__btn" (click)="openSinglePost(post)">View</a>
           <a class="nav-item container-cards__single__btn" (click)="editPost(post)">Edit</a>
           <a class="nav-item container-cards__single__btn" (click)="removePost(post)" >Remove</a>
         </nav>
