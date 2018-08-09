@@ -8,12 +8,10 @@ import { PagesModule } from '../pages/pages.module';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { SharedModule } from '../shared/shared.module';
-import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostsComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes, { useHash: true}),
