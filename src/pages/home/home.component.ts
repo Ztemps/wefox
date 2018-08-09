@@ -18,8 +18,8 @@ export class HomeComponent implements OnInit {
       this.isLoaded = true;
       setTimeout(() => {
         this.playVideo();
-      }, 2000);
-    }, 1000);
+      }, 100);
+    }, 100);
   }
 
   playVideo() {

@@ -1,8 +1,10 @@
+@import 'src/styles/styles';
+
 .main-container-home {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ff9f00;
+  background-color: $main_orange;
   height: 104vh;
   .container-icon {
     cursor: pointer;
@@ -48,7 +50,7 @@
         &__over {
         height: inherit;
         width: inherit;
-        background-color: #ff9f00;
+        background-color: $main_orange;
         -webkit-transform: skewY(3deg);
         transform: skewY(3deg);
         z-index: 1;
@@ -70,16 +72,16 @@
           width: 25vh;
           text-align: center;
           &.effect {
-            background-color: #444444;
-            color: #ffdca4;
+            background-color: $black_wefox;
+            color: $ligth_orange;
             &:active {
-              color: #ff9f00;
+              color: $main_orange;
             }
             &:hover {
               text-decoration: none;
-              color: #444444;
+              color: $black_wefox;
               box-shadow: 0 5px 30px rgba(0, 0, 0, 1);
-              background-color: #ff9f00;
+              background-color: $main_orange
             }
           }
         }
