@@ -1,20 +1,22 @@
-
 import { NgModule } from '@angular/core';
 
+// Modules
+import { RouterModule } from '@angular/router';
+import { PagesModule } from '../pages/pages.module';
+
+// Components
 import { AppComponent } from './app.component';
-import { HomeComponent } from '../pages/home/home.component';
-import { RouterModule } from '../../node_modules/@angular/router';
 import { appRoutes } from './app.routes';
-import { BrowserModule } from '@angular/platform-browser';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent
+    AppComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes, { useHash: true}),
-    BrowserModule
+    PagesModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
