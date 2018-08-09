@@ -1,0 +1,35 @@
+<div class="main-container-home fadeIn animated" *ngIf="isLoaded; else loader" #done>
+  <div class="row container-header">
+    <div class="container-header__logo">
+      <img src="../../assets/img/wefox-header-logo.svg" alt="Wefox Logo">
+    </div>
+  </div>
+  <div class="row container-video">
+    <div #div class="container-video__box">
+      <video  class="container-video__box__content"  id="homeVideo" #homeVideo>
+        <source src="../../assets/video/bcn-time-lapse.mp4" type="video/mp4" alt="Wefox Video">
+      </video>
+    </div>
+  </div>
+  <div class="row container-icon" (click)="scrollIcon('container-button')">
+    <div class="container-icon__content">
+      <img class="container-icon__content__img" src="../../assets/img/wefox-logo-icon.png" alt="Wefox Icon">
+    </div>
+  </div>
+  <div class="row container-button">
+      <a class="button effect" (click)="goToPostsList()">Post List</a>
+  </div>
+  <div class="container-slash">
+    <div class="container-slash__over">
+    </div>
+    <div class="container-slash__under">
+    </div>
+  </div>
+</div>
+
+<div class="lds-ellipsis" *ngIf="!isLoaded; else done" #loader >
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
