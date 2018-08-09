@@ -16,7 +16,6 @@ export class PostsService {
       map((posts: [Post]) => {
         const postList = [];
         posts.forEach((post: Post) => {
-          console.log('post: ', post);
           postList.push(new Post(post));
         });
         return postList;

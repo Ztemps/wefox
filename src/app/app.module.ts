@@ -10,9 +10,7 @@ import { appRoutes } from './app.routes';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     RouterModule.forRoot(appRoutes, { useHash: true}),
     PagesModule,

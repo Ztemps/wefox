@@ -9,10 +9,13 @@ import { PostsComponent } from './posts.component';
 
 // Providers
 import { PostsService } from './posts.service';
-
+import { MainModalModule } from '../../shared/modal/modal.module';
 
 @NgModule({
-    imports: [SharedModule],
+    imports: [
+      SharedModule,
+      MainModalModule
+    ],
     declarations: [PostsComponent],
     exports: [],
     providers: [PostsService]
