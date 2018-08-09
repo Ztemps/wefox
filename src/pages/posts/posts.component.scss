@@ -17,9 +17,26 @@
       top: 4vh;
       &__logo {
         height: 5.5vh;
+        cursor: pointer;
       }
     }
   }
+
+  .container-new-post {
+    margin: 17vh 0 0 12vw;
+    position: absolute;
+    left: 0px;
+    &__btn {
+      color: #fff;
+      background-color: #444444;
+      border-color: #444444;
+      &:hover {
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 1);
+        background-color: #ff9f00;
+      }
+    }
+  }
+
   .container-cards {
     display: flex;
     flex-wrap: wrap;
