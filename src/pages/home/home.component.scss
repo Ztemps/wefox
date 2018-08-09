@@ -40,29 +40,27 @@
     &__box {
       width: inherit;
       height: inherit;
-      .container-slash {
+      .container-slash{
         position: relative;
         top: -25vh;
         height: 24vh;
         width: 100%;
         &__over {
-          height: inherit;
-          width: inherit;
-          background-color: #ff9f00;
-          -webkit-transform: skewY(3deg);
-          transform: skewY(3deg);
-          z-index: 1;
+        height: inherit;
+        width: inherit;
+        background-color: #ff9f00;
+        -webkit-transform: skewY(3deg);
+        transform: skewY(3deg);
+        z-index: 1;
         }
       }
+
       .container-button {
         display: flex;
         align-items: center;
         justify-content: space-around;
         position: relative;
         top: -16vh;
-        &__content {
-          width: inherit;
-        }
         .button {
           border-radius: 5rem;
           font-size: 1.9rem;
@@ -86,6 +84,10 @@
           }
         }
       }
+      &__content {
+        width: inherit;
+      }
     }
   }
+
 }

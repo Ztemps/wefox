@@ -64,3 +64,40 @@
     transform: translate(19px, 0);
   }
 }
+
+
+/* Responsive Phones - Portrait */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .main-container-home {
+    .container-video{
+        .container-button{
+          position: relative !important;
+          top: 4vh !important;
+        }
+        .container-slash {
+          position: relative !important;
+          top: -9vh !important;
+      }
+    }
+  }
+}
+
+/* Responsive Phones - Landscape */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .main-container-home {
+    .container-video{
+        .container-button{
+          position: relative !important;
+          top: -20vh !important;
+          .button {
+            width: 25vw !important;
+          }
+        }
+        .container-slash {
+          display: none !important;
+      }
+    }
+  }
+}
