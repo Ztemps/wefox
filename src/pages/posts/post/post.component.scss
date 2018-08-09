@@ -1,0 +1,25 @@
+.main-container-post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: #ff9f00;
+  .container-header {
+    position: absolute;
+    width: 100%;
+    background: white;
+    height: 13vh;
+    width: 100%;
+    margin: 0px;
+    &__container {
+      position: relative;
+      left: 6.5vw;
+      top: 4vh;
+      &__logo {
+        height: 5.5vh;
+        cursor: pointer;
+      }
+    }
+  }
+}

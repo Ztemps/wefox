@@ -1,3 +1,14 @@
-<p>
-  post works!
-</p>
+<div class="main-container-post fadeIn animated" *ngIf="isLoaded; else loader" #done>
+  <div class="row container-header">
+    <div class="container-header__container" (click)="goHome()">
+      <img class="container-header__container__logo" src="../../assets/img/wefox-header-logo.svg" alt="Wefox Logo">
+    </div>
+  </div>
+</div>
+
+<div #loader *ngIf="!isLoaded; else done" class="lds-ellipsis">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
