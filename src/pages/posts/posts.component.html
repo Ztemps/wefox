@@ -14,9 +14,9 @@
         <img class="card-img-top container-cards__single__img" [src]="post?.image_url" alt="{{ post?.title }} image">
         <p class="card-text">{{ post?.content }}</p>
         <nav class="nav nav-pills nav-justified">
-          <a class="nav-item container-cards__single__btn">View</a>
+          <a class="nav-item container-cards__single__btn" >View</a>
           <a class="nav-item container-cards__single__btn" (click)="editPost(post)">Edit</a>
-          <a class="nav-item container-cards__single__btn">Remove</a>
+          <a class="nav-item container-cards__single__btn" (click)="removePost(post)" >Remove</a>
         </nav>
       </div>
     </div>

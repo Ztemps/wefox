@@ -58,7 +58,7 @@ export class PostsComponent implements OnInit {
       );
   }
 
-  updatePost(post: Post) {
+  private updatePost(post: Post) {
     this._postsService.updatePost(post)
       .subscribe(
         postEdited => {
@@ -109,6 +109,35 @@ export class PostsComponent implements OnInit {
     this.showModal(initialState);
   }
 
+  public removePost(post: Post) {
+    console.log('post: ', post);
+    swal({
+      title: 'Are you sure?',
+      text: 'Once deleted, you will not be able to recover this post!',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        this._postsService.removePost(post.id)
+        .subscribe(
+          postDeleted =>  {
+            swal('Success! Your post has been deleted!', {
+              icon: 'success',
+            });
+            this.reloadContent();
+          },
+          error => {
+            console.error('Error deleting post', error);
+            swal ( 'Oops' ,  'Something went wrong!' ,  'error' );
+          }
+        );
+      } else {
+        swal('Take care the next time!');
+      }
+    });
+  }
   public goHome() {
     this.router.navigate(['/home']);
   }

@@ -32,4 +32,8 @@ export class PostsService {
       `${API_URL}/${post.id}`, { post }, { headers: this.headers }
     );
   }
+
+  removePost(id: number) {
+    return this.http.delete(`${API_URL}/${id}`);
+}
 }
