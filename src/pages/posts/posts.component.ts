@@ -11,6 +11,7 @@ export class PostsComponent implements OnInit {
   constructor(private _postsService: PostsService) { }
 
   public posts: [{}] = [{}];
+  public isLoaded = false;
 
   ngOnInit() {
     this.loadPostList();
@@ -21,6 +22,7 @@ export class PostsComponent implements OnInit {
       (posts: [Post]) => {
         this.posts = posts;
         console.log('this.posts: ', this.posts);
+        this.isLoaded = true;
       },
       err => console.error('Error gathering the post list', err)
     );
