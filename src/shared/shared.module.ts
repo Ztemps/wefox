@@ -6,6 +6,8 @@ import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import { BsModalRef, ModalModule } from 'ngx-bootstrap';
 import { ModalComponent } from './modal/modal.component';
 import { FormsModule } from '../../node_modules/@angular/forms';
+import { AgmCoreModule } from '@agm/core';
+import { NoimagePipe } from './pipes/no-image.pipe';
 
 @NgModule({
   imports: [
@@ -14,11 +16,14 @@ import { FormsModule } from '../../node_modules/@angular/forms';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyASUKcLzA507XzEpJfqeoNjojw6GXrJMCc'
+    })
   ],
-  exports: [CommonModule, BrowserModule, BrowserAnimationsModule, HttpClientModule, ModalModule, FormsModule],
+  exports: [CommonModule, BrowserModule, BrowserAnimationsModule, HttpClientModule, ModalModule, FormsModule, AgmCoreModule, NoimagePipe],
   entryComponents: [ModalComponent],
-  declarations: [],
+  declarations: [NoimagePipe],
   providers: [BsModalRef]
 })
 export class SharedModule {}

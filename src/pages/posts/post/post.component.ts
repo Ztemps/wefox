@@ -1,7 +1,7 @@
+import { Post } from './../../../models/post.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '../../../../node_modules/@angular/router';
 import { PostService } from './post.service';
-import { Post } from '../../../models/post.model';
 
 @Component({
   selector: 'app-post',
@@ -10,25 +10,32 @@ import { Post } from '../../../models/post.model';
 })
 export class PostComponent implements OnInit {
 
+  public lat: number;
+  public lng: number;
   public selectedPost: number;
+  public cardContent: Post;
   public isLoaded = false;
-
   constructor(
     private actRoute: ActivatedRoute,
-    private _postService: PostService,
-    private router: Router) { }
+    private router: Router,
+    private _postService: PostService) { }
 
   ngOnInit() {
-    console.log('this.actRoute.params: ', this.actRoute.params['value'].id);
     this.selectedPost =  this.actRoute.params['value'].id;
     this._postService.getSinglePost(this.selectedPost).subscribe((res: Post) => {
-      console.log('res: ', res);
+      this.cardContent = res;
+      this.lat = this.cardContent.lat;
+      this.lng = this.cardContent.long;
       this.isLoaded = true;
     });
   }
 
-  public goHome() {
+  goHome() {
     this.router.navigate(['/home']);
+  }
+
+  goBack() {
+    this.router.navigate(['/posts']);
   }
 
 }

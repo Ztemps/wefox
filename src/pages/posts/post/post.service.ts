@@ -1,8 +1,8 @@
-import { API_URL } from './../../../constants';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Post } from '../../../models/post.model';
+import { API_URL } from './../../../constants';
 
 @Injectable()
 export class PostService {
@@ -12,8 +12,9 @@ export class PostService {
 
   getSinglePost(id: number) {
     return this.http
-      .get(`${API_URL}/${id}`)
-      .pipe(map((post: any) => new Post(post)));
+      .get(`${API_URL}/${id}`).pipe(
+      map((post: any) => new Post(post))
+    );
   }
 
 }

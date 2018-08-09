@@ -22,4 +22,28 @@
       }
     }
   }
+  .container-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 17vh 1vw 4vh 1vw;
+    width: 80%;
+    &__box {
+      width: 100%;
+      &__img {
+        height: 64vh;
+        width: 100%;
+      }
+      &__body {
+        &__button {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+agm-map {
+  height: 300px;
 }
