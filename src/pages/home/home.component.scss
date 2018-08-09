@@ -8,6 +8,8 @@
     display: flex;
     align-items: center;
     width: 18vw;
+    position: relative;
+    top: 10vh;
     &__content {
       width: inherit;
       height: inherit;
@@ -16,7 +18,7 @@
       flex-direction: column;
       z-index: 1;
       &__img {
-        width: 12vw;
+        width: 10vw;
       }
     }
     &:hover {
@@ -27,6 +29,9 @@
     position: absolute;
     top: 10px;
     left: 0px;
+    &__logo {
+      transform: scale(0.5);
+    }
   }
   .container-video {
     width: 100%;
@@ -37,25 +42,32 @@
       }
     }
   }
-  .container-main-slash {
+  .container-slash{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    &__over {
     position: relative;
-    top: 67px;
-    height: 250px;
+    top: 24vh;
+    height: 72vh;
     width: 100%;
     background-color: #ff9f00;
-    -webkit-transform: skewY(-5deg);
-    transform: skewY(-5deg);
+    -webkit-transform: skewY(3deg);
+    transform: skewY(3deg);
     z-index: 1;
+    }
+    &__under {
+      position: relative;
+      top: -9vh;
+      height: 72vh;
+      width: 100%;
+      background-color: #ffdca4;
+      -webkit-transform: skewY(-3deg);
+      transform: skewY(-3deg);
+    }
   }
-  .container-sub-slash {
-    position: relative;
-    top: -67px;
-    height: 250px;
-    width: 100%;
-    background-color: #ffdca4;
-    -webkit-transform: skewY(-5deg);
-    transform: skewY(5deg);
-  }
+
   .button {
     border-radius: 5rem;
     padding: 1.5rem;
@@ -63,7 +75,7 @@
     cursor: pointer;
     transition: all .4s;
     position: relative;
-    top: 137px;
+    top: 40vh;
     height: 86px;
     z-index: 2;
     &.effect {
