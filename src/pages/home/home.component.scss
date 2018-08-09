@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 125vh;
+  background-color: #ff9f00;
+  height: 104vh;
   .container-icon {
     cursor: pointer;
     display: flex;
@@ -35,60 +36,55 @@
   }
   .container-video {
     width: 100%;
+    height: inherit;
     &__box {
       width: inherit;
-      &__content {
-        width: inherit;
+      height: inherit;
+      .container-slash {
+        position: relative;
+        top: -25vh;
+        height: 24vh;
+        width: 100%;
+        &__over {
+          height: inherit;
+          width: inherit;
+          background-color: #ff9f00;
+          -webkit-transform: skewY(3deg);
+          transform: skewY(3deg);
+          z-index: 1;
+        }
       }
-    }
-  }
-  .container-slash{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    &__over {
-    position: relative;
-    top: 24vh;
-    height: 72vh;
-    width: 100%;
-    background-color: #ff9f00;
-    -webkit-transform: skewY(3deg);
-    transform: skewY(3deg);
-    z-index: 1;
-    }
-    &__under {
-      position: relative;
-      top: -9vh;
-      height: 72vh;
-      width: 100%;
-      background-color: #ffdca4;
-      -webkit-transform: skewY(-3deg);
-      transform: skewY(-3deg);
-    }
-  }
-
-  .button {
-    border-radius: 5rem;
-    padding: 1.5rem;
-    font-size: 1.9rem;
-    cursor: pointer;
-    transition: all .4s;
-    position: relative;
-    top: 40vh;
-    height: 86px;
-    z-index: 2;
-    &.effect {
-      background-color: #444444;
-      color: #ffdca4;
-      &:active {
-        color: #ff9f00;
-      }
-      &:hover {
-        text-decoration: none;
-        color: #444444;
-        background-color: #ffdca4;
-        box-shadow: 0 1rem 2rem rgba(#ffdca4, 0.2);
+      .container-button {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        position: relative;
+        top: -16vh;
+        &__content {
+          width: inherit;
+        }
+        .button {
+          border-radius: 5rem;
+          font-size: 1.9rem;
+          cursor: pointer;
+          transition: all .4s;
+          z-index: 2;
+          width: 25vh;
+          text-align: center;
+          &.effect {
+            background-color: #444444;
+            color: #ffdca4;
+            &:active {
+              color: #ff9f00;
+            }
+            &:hover {
+              text-decoration: none;
+              color: #444444;
+              box-shadow: 0 5px 30px rgba(0, 0, 0, 1);
+              background-color: #ff9f00;
+            }
+          }
+        }
       }
     }
   }
