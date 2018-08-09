@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ export class HomeComponent implements OnInit {
   @ViewChild('homeVideo') homeVideo: ElementRef;
   public isLoaded = false;
   public video_element: any;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     setTimeout(() => {
@@ -33,5 +34,9 @@ export class HomeComponent implements OnInit {
     const element = elementList[0] as HTMLElement;
     element.scrollIntoView({ behavior: 'smooth' });
  }
+
+ goToPostsList() {
+  this.router.navigate(['/posts']);
+}
 
 }
