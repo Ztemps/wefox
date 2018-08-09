@@ -4,6 +4,7 @@ import { Post } from '../../models/post.model';
 import { Router } from '../../../node_modules/@angular/router';
 import { BsModalRef, BsModalService } from '../../../node_modules/ngx-bootstrap';
 import { ModalComponent } from '../../shared/modal/modal.component';
+declare var swal: any;
 
 @Component({
   selector: 'app-posts',
@@ -16,6 +17,7 @@ export class PostsComponent implements OnInit {
   public empyPost: Post;
   public isLoaded = false;
   public isNewPost = true;
+
   constructor(
     private _postsService: PostsService,
     private router: Router,
@@ -42,18 +44,47 @@ export class PostsComponent implements OnInit {
       .subscribe(
         postCreated => {
           this.reloadContent();
+          swal({
+            title: 'Well Done!',
+            text: 'Post successfully created',
+            icon: 'success',
+            button: 'Accept'
+          });
         },
         error => {
           console.error('Error creating post', error);
+          swal ( 'Oops', 'Something went wrong!', 'error' );
         }
       );
   }
 
+  updatePost(post: Post) {
+    this._postsService.updatePost(post)
+      .subscribe(
+        postEdited => {
+          this.reloadContent();
+          swal({
+            title: 'Well Done!',
+            text: 'Post successfully updated',
+            icon: 'success',
+            button: 'Accept'
+          });
+        },
+        error => {
+          console.error('Error updating post', error);
+          swal ( 'Oops', 'Something went wrong!', 'error' );
+        }
+      );
+  }
   private reloadContent() {
     this.loadPostList();
   }
+  private showModal(initialState) {
+    this.bsModalRef = this._modalService.show(ModalComponent, {initialState});
+  }
 
   public createPost() {
+    this.isNewPost = true;
     const initialState = {
       initialState: {
         modalTitle: 'Create post',
@@ -61,12 +92,27 @@ export class PostsComponent implements OnInit {
         condition: this.isNewPost
       }
     };
-    this.bsModalRef = this._modalService.show(ModalComponent, {initialState});
+    this.showModal(initialState);
+  }
+
+  public editPost(originalPost: Post) {
+    this.isNewPost = false;
+    const initialState = {
+      initialState: {
+        modalTitle: 'Edit post',
+        // tslint:disable-next-line:no-shadowed-variable
+        method: (editedPost) => this.updatePost(editedPost),
+        condition: this.isNewPost,
+        post: originalPost
+      }
+    };
+    this.showModal(initialState);
   }
 
   public goHome() {
     this.router.navigate(['/home']);
   }
+
 
 
 }

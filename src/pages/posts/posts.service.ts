@@ -6,10 +6,9 @@ import { Post } from '../../models/post.model';
 
 @Injectable()
 export class PostsService {
-
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // Listed as CRUD order
   createPost(post: Post) {
@@ -28,4 +27,9 @@ export class PostsService {
     );
   }
 
+  updatePost(post: Post) {
+    return this.http.put(
+      `${API_URL}/${post.id}`, { post }, { headers: this.headers }
+    );
+  }
 }

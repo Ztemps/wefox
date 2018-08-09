@@ -15,6 +15,7 @@ export class ModalComponent implements OnInit {
   public method: any;
   public empyPost;
   public condition;
+  public originalPost: Post;
   constructor(public bsModalRef: BsModalRef) { }
 
   ngOnInit() {
@@ -24,6 +25,9 @@ export class ModalComponent implements OnInit {
       this.modalTitle = this.bsModalRef.content.initialState.modalTitle;
       if (this.bsModalRef.content.initialState.condition) {
         this.post = new Post({ title: '', content: ''});
+      } else {
+        this.originalPost = this.bsModalRef.content.initialState.post;
+        this.post = new Post (this.originalPost);
       }
     }, 300);
   }
