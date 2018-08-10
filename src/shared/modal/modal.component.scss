@@ -1,0 +1,8 @@
+@import 'src/styles/variables';
+
+.container-modal {
+  padding: 0;
+  .modal-header {
+    background: $main_orange;
+  }
+}

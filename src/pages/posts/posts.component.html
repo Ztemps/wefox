@@ -1,0 +1,28 @@
+<div class="main-container-posts fadeIn animated" *ngIf="isLoaded; else loader" #done>
+  <div class="row container-header">
+    <div class="container-header__container" (click)="goHome()">
+      <img class="container-header__container__logo" src="../../assets/img/wefox-header-logo.svg" alt="Wefox Logo">
+    </div>
+  </div>
+  <div class="row container-new-post">
+    <button class="btn container-new-post__btn" type="button" (click)="createPost()"  >Create post</button>
+</div>
+  <div class="row container-cards">
+    <div class="card-header" *ngFor="let post of posts;">
+      <div class="card-body container-cards__single">
+        <h5 class="card-title">{{ post?.title }}</h5>
+        <img class="card-img-top container-cards__single__img"
+        [src]="post?.image_url | no_image "
+        (error)="post.image_url = '../../assets/img/picture-not-available.jpg'"
+        alt="{{ post?.title }} image">
+        <p class="card-text">{{ post?.content }}</p>
+        <nav class="nav nav-pills nav-justified">
+          <a class="nav-item container-cards__single__btn" (click)="openSinglePost(post)">View</a>
+          <a class="nav-item container-cards__single__btn" (click)="editPost(post)">Edit</a>
+          <a class="nav-item container-cards__single__btn" (click)="removePost(post)" >Remove</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<app-loader *ngIf="!isLoaded; else done" #loader></app-loader>

@@ -1,0 +1,95 @@
+@import 'src/styles/styles';
+
+.main-container-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $main_orange;
+  height: 104vh;
+  .container-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 18vw;
+    position: relative;
+    top: 10vh;
+    &__content {
+      width: inherit;
+      height: inherit;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      z-index: 1;
+      &__img {
+        width: 10vw;
+      }
+    }
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  .container-header {
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    &__logo {
+      transform: scale(0.5);
+    }
+  }
+  .container-video {
+    width: 100%;
+    height: inherit;
+    &__box {
+      width: inherit;
+      height: inherit;
+      .container-slash{
+        position: relative;
+        top: -25vh;
+        height: 24vh;
+        width: 100%;
+        &__over {
+        height: inherit;
+        width: inherit;
+        background-color: $main_orange;
+        -webkit-transform: skewY(3deg);
+        transform: skewY(3deg);
+        z-index: 1;
+        }
+      }
+
+      .container-button {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        position: relative;
+        top: -16vh;
+        .button {
+          border-radius: 5rem;
+          font-size: 1.9rem;
+          cursor: pointer;
+          transition: all .4s;
+          z-index: 2;
+          width: 25vh;
+          text-align: center;
+          &.effect {
+            background-color: $black_wefox;
+            color: $ligth_orange;
+            &:active {
+              color: $main_orange;
+            }
+            &:hover {
+              text-decoration: none;
+              color: $black_wefox;
+              box-shadow: 0 5px 30px rgba(0, 0, 0, 1);
+              background-color: $main_orange
+            }
+          }
+        }
+      }
+      &__content {
+        width: inherit;
+      }
+    }
+  }
+
+}
