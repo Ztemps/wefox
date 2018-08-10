@@ -8,6 +8,7 @@ import { ModalComponent } from './modal/modal.component';
 import { FormsModule } from '../../node_modules/@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { NoimagePipe } from './pipes/no-image.pipe';
+import { LoaderModule } from './loader/loader.module';
 
 @NgModule({
   imports: [
@@ -19,9 +20,20 @@ import { NoimagePipe } from './pipes/no-image.pipe';
     FormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyASUKcLzA507XzEpJfqeoNjojw6GXrJMCc'
-    })
+    }),
+    LoaderModule
   ],
-  exports: [CommonModule, BrowserModule, BrowserAnimationsModule, HttpClientModule, ModalModule, FormsModule, AgmCoreModule, NoimagePipe],
+  exports: [
+    CommonModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    ModalModule,
+    FormsModule,
+    AgmCoreModule,
+    NoimagePipe,
+    LoaderModule
+  ],
   entryComponents: [ModalComponent],
   declarations: [NoimagePipe],
   providers: [BsModalRef]
