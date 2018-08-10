@@ -29,12 +29,6 @@ export class HomeComponent implements OnInit {
     this.homeVideo.nativeElement.play();
   }
 
-  scrollIcon(className: string) {
-    const elementList = document.querySelectorAll(`.${className}`);
-    const element = elementList[0] as HTMLElement;
-    element.scrollIntoView({ behavior: 'smooth' });
- }
-
  goToPostsList() {
   this.router.navigate(['/posts']);
 }
