@@ -1,66 +1,37 @@
-.lds-ellipsis {
-  display: inline-block;
-  position: relative;
-  width: 64px;
-  height: 64px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-}
 
-.lds-ellipsis div {
-  position: absolute;
-  top: 27px;
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: #ff9f00;
-  animation-timing-function: cubic-bezier(0, 1, 1, 0);
-}
 
-.lds-ellipsis div:nth-child(1) {
-  left: 6px;
-  animation: lds-ellipsis1 0.6s infinite;
-}
+/* Responsive Phones - Portrait */
 
-.lds-ellipsis div:nth-child(2) {
-  left: 6px;
-  animation: lds-ellipsis2 0.6s infinite;
-}
-
-.lds-ellipsis div:nth-child(3) {
-  left: 26px;
-  animation: lds-ellipsis2 0.6s infinite;
-}
-
-.lds-ellipsis div:nth-child(4) {
-  left: 45px;
-  animation: lds-ellipsis3 0.6s infinite;
-}
-
-@keyframes lds-ellipsis1 {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
+@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .main-container-home {
+    .container-video{
+        .container-button{
+          position: relative !important;
+          top: 4vh !important;
+        }
+        .container-slash {
+          position: relative !important;
+          top: -9vh !important;
+      }
+    }
   }
 }
 
-@keyframes lds-ellipsis3 {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0);
-  }
-}
+/* Responsive Phones - Landscape */
 
-@keyframes lds-ellipsis2 {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(19px, 0);
+@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .main-container-home {
+    .container-video{
+        .container-button{
+          position: relative !important;
+          top: -20vh !important;
+          .button {
+            width: 25vw !important;
+          }
+        }
+        .container-slash {
+          display: none !important;
+      }
+    }
   }
 }

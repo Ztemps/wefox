@@ -1,13 +1,15 @@
+@import 'src/styles/styles';
+
 .main-container-posts {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100%;
-  background: #ff9f00;
+  background: $main_orange;
   .container-header {
     position: absolute;
     width: 100%;
-    background: white;
+    background: $single_white;
     height: 13vh;
     width: 100%;
     margin: 0px;
@@ -27,12 +29,12 @@
     position: absolute;
     left: 0px;
     &__btn {
-      color: #fff;
-      background-color: #444444;
-      border-color: #444444;
+      color: $single_white;
+      background-color: $black_wefox;
+      border-color: $black_wefox;
       &:hover {
         box-shadow: 0 5px 30px rgba(0, 0, 0, 1);
-        background-color: #ff9f00;
+        background-color: $main_orange;
       }
     }
   }
@@ -65,13 +67,13 @@
           &__single {
             &__btn {
               width: 100%;
-              background-color: #444444;
-              border-color: #444444;
-              color: white;
+              background-color: $black_wefox;
+              border-color: $black_wefox;
+              color: $single_white;
               cursor: pointer;
               border-radius: 5%;
               &:hover {
-                background-color: #ff9f00;
+                background-color: $main_orange;
               }
             }
             &__img {
