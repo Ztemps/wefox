@@ -15,6 +15,8 @@ export class PostComponent implements OnInit {
   public selectedPost: number;
   public cardContent: Post;
   public isLoaded = false;
+  public loader;
+  public done;
   constructor(
     private actRoute: ActivatedRoute,
     private router: Router,

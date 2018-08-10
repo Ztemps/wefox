@@ -17,7 +17,8 @@ export class PostsComponent implements OnInit {
   public empyPost: Post;
   public isLoaded = false;
   public isNewPost = true;
-
+  public loader;
+  public done;
   constructor(
     private _postsService: PostsService,
     private router: Router,

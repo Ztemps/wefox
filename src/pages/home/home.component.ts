@@ -11,6 +11,8 @@ export class HomeComponent implements OnInit {
   @ViewChild('homeVideo') homeVideo: ElementRef;
   public isLoaded = false;
   public video_element: any;
+  public loader;
+  public done;
   constructor(private router: Router) { }
 
   ngOnInit() {
