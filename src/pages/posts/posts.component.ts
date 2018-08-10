@@ -110,7 +110,6 @@ export class PostsComponent implements OnInit {
   }
 
   public removePost(post: Post) {
-    console.log('post: ', post);
     swal({
       title: 'Are you sure?',
       text: 'Once deleted, you will not be able to recover this post!',

@@ -9,11 +9,13 @@ import { FormsModule } from '../../node_modules/@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { NoimagePipe } from './pipes/no-image.pipe';
 import { LoaderModule } from './loader/loader.module';
+import { MainModalModule } from './modal/modal.module';
 
 @NgModule({
   imports: [
     CommonModule,
     ModalModule.forRoot(),
+    MainModalModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,

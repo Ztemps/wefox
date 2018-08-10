@@ -1,5 +1,5 @@
-
 /* Animation Duration */
+
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -8,6 +8,7 @@
 }
 
 /* Animation Duration (FadeIn) */
+
 @keyframes fadeIn {
   from {
     opacity: 0;

@@ -1,5 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { SharedModule } from '../../shared/shared.module';
+import { MainModalModule } from '../../shared/modal/modal.module';
+import { PostModule } from './post/post.module';
+import { PostsService } from './posts.service';
+import { RouterTestingModule } from '@angular/router/testing';
 import { PostsComponent } from './posts.component';
 
 describe('PostsComponent', () => {
@@ -8,7 +13,15 @@ describe('PostsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PostsComponent ]
+      imports: [
+        SharedModule,
+        MainModalModule,
+        PostModule,
+        RouterTestingModule
+      ],
+      declarations: [ PostsComponent ],
+      providers: [ PostsService ]
+
     })
     .compileComponents();
   }));
@@ -19,7 +32,7 @@ describe('PostsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Should create the Posts Page', () => {
     expect(component).toBeTruthy();
   });
 });

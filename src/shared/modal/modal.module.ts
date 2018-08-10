@@ -1,13 +1,18 @@
+import { LoaderModule } from './../loader/loader.module';
 import { NgModule } from '@angular/core';
-import { SharedModule } from '../shared.module';
-import { ModalModule } from '../../../node_modules/ngx-bootstrap';
 import { ModalComponent } from './modal.component';
+import { FormsModule } from '../../../node_modules/@angular/forms';
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
     imports: [
-      SharedModule,
-      ModalModule
+      CommonModule,
+      BrowserModule,
+      FormsModule,
+      LoaderModule
     ],
+    exports: [ModalComponent],
     declarations: [ModalComponent]
 })
 export class MainModalModule {

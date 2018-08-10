@@ -1,14 +1,8 @@
 import { NgModule } from '@angular/core';
-
-// Modules
 import { SharedModule } from '../../shared/shared.module';
-
-// Components
-import { PostsComponent } from './posts.component';
-
-// Providers
-import { PostsService } from './posts.service';
 import { MainModalModule } from '../../shared/modal/modal.module';
+import { PostsComponent } from './posts.component';
+import { PostsService } from './posts.service';
 import { PostModule } from './post/post.module';
 
 @NgModule({
